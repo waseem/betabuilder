@@ -4,11 +4,11 @@ module BetaBuilder
       def extended_configuration_for_strategy
         proc do
           def deployment_url
-            File.join(deploy_to, target.downcase, ipa_name)
+            File.join(deploy_to, ipa_name.gsub(' ', ''))
           end
 
           def manifest_url
-            File.join(deploy_to, target.downcase, "manifest.plist")
+            File.join(deploy_to, "manifest.plist")
           end
 
           def remote_installation_path
