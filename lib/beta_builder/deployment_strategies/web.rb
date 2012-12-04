@@ -84,7 +84,6 @@ module BetaBuilder
       end
       
       def deploy
-        system("scp pkg/dist/* #{@configuration.remote_host}:#{@configuration.remote_installation_path}")
       end
     end
   end
