@@ -135,6 +135,10 @@ module BetaBuilder
           FileUtils.rm_rf('pkg') && FileUtils.mkdir_p('pkg')
           FileUtils.mkdir_p("pkg/Payload")
           FileUtils.mv(@configuration.built_app_path, "pkg/Payload/#{@configuration.app_file_name}")
+          Dir.chdir('pkg/Payload') do
+            p system("/usr/bin/xcrun -sdk iphoneos PackageApplication -v \"#{@configuration.app_file_name}\" -o \"#{Dir.pwd}/../#{@configuration.ipa_name}\" --sign \"iPhone Distribution: #{@configuration.company_name}\"")
+          end
+
           Dir.chdir("pkg") do
             system("zip -r '#{@configuration.ipa_name}' Payload")
           end
