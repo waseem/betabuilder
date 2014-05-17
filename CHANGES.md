@@ -1,3 +1,9 @@
+## 0.7.5
+* Loosen the JSON gem dependency (@lukereadpath)
+* Enforce HTTPS for TestFlight uploads.
+* Replace configuration option for TestFlight deployments (@mwhuss)
+* Be oblivious to quoting of build directory path when parsing output (@techbelly)
+
 ## 0.7.4.1
 * Allow auto-archiving from other Rake namespaces (@victor)
 * Fixed bug with Xcode archive sharing (@victor)
